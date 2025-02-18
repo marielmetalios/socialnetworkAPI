@@ -23,19 +23,17 @@ const reactionSchema = new Schema<IReaction>(
         type: String,
         required: true,
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp: Date) => timestamp.toString(),
-    },
     },
     {
         toJSON: {
             getters: true,
         },
-        timestamps: true,
     }
 );
+
+reactionSchema.virtual('formattedCreatedAt').get(function() {
+    return this.createdAt.toString(); 
+});
 
 export default reactionSchema;
 

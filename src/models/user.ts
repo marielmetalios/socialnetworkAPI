@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import { Schema, Types, model, type Document } from 'mongoose';
 // schema: structure of MongoDB doc
 // model: creating Mongoose model, based on schema:
@@ -26,25 +26,27 @@ const userSchema = new Schema<IUser> (
             type: String,
             unique: true,
             required: true,
-            // match: [???] //fix this!
+            match: [/.+@.+\..+/, 'Please fill a valid email address'],
         },
         thoughts: [
             {
             type: Schema.Types.ObjectId,
-            reference: 'Thought',
+            ref: 'Thought',
             }
         ],
         friends: [
             {
             type: Schema.Types.ObjectId,
-            reference: 'User'
+            ref: 'User'
             }
         ],
+    },
+    {
         toJSON: {
-                virtuals: true,
-            },
+            virtuals: true,
         },
-)
+    }
+);
 
 userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
