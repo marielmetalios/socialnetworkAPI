@@ -1,17 +1,29 @@
 import express from 'express';
-import routes from './routes/index.js'
+import mongoose from 'mongoose';
+import routes from './routes/index.js';
 
 
+// this is the ENTRY point of our app.
+// It initializes express (for web server)
+// Connects us to MongoDB
+// Sets up our starting API routes.
 
 const app = express();
 const PORT  = 3000;
 
-app.use(express.json())
+// middleware tells Express to  parse JSON automatically from incoming requests.
+app.use(express.json());
+app.use(routes);
 
 // app.get('/', (_req, res) => {
 //     res.send('Testing!');
 // });
 
-app.listen(PORT, () => {
-    console.log(`New server running here: http://localhost:${PORT}`)
-})
+//ODM - 
+mongoose
+    .connect('mongodb://localhost:27017/socialDB')
+    .then(() => {
+        console.log('Connected to MongoDB');
+        app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    })
+    .catch((err) => console.error(err));

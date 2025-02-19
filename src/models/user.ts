@@ -1,5 +1,5 @@
 // import mongoose from "mongoose";
-import { Schema, Types, model, type Document } from 'mongoose';
+import { Schema, model, type Document } from 'mongoose';
 // schema: structure of MongoDB doc
 // model: creating Mongoose model, based on schema:
 // document: type from Mongoose, used to build our interfaces (documents)
@@ -10,7 +10,6 @@ interface IUser extends Document {
     thoughts: Schema.Types.ObjectId[];
     friends: Schema.Types.ObjectId[];
     friendCount: number; //virtual!
-
 }
 
 // new collection User -- 
