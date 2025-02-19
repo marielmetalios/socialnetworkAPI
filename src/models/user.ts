@@ -9,7 +9,7 @@ interface IUser extends Document {
     email: string,
     thoughts: Schema.Types.ObjectId[];
     friends: Schema.Types.ObjectId[];
-    friendCount: number; //virtual!
+    // friendCount: number; //virtual!
 }
 
 // new collection User -- 
