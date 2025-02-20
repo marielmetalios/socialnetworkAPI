@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { User } from '../models';
+// import { User } from '../../models';
 // import Thought from './models/reaction'
-import { getAllUsers } from '../../controllers/userController';
-import { getUserById } from '../../controllers/userController';
-import { createUser } from '../../controllers/userController';
-import { removeFriend } from '../../controllers/userController';
-import { updateUser } from '../../controllers/userController';
-import { deleteUser } from '../../controllers/userController';
+import { getAllUsers } from '../../controllers/userController.js';
+import { getUserById } from '../../controllers/userController.js';
+import { createUser } from '../../controllers/userController.js';
+// import { removeFriend } from '../../controllers/userController';
+import { updateUser } from '../../controllers/userController.js';
+import { deleteUser } from '../../controllers/userController.js';
 
 const router = Router();
 
@@ -20,4 +20,4 @@ router
   .put(updateUser)
   .delete(deleteUser);
 
-export { router as courseRouter };
+export { router as userRoutes };

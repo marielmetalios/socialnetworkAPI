@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import routes from './routes/index.js';
 
-
 // this is the ENTRY point of our app.
 // It initializes express (for web server)
 // Connects us to MongoDB
@@ -21,7 +20,7 @@ app.use(routes);
 
 //ODM - 
 mongoose
-    .connect('mongodb://localhost:27017/socialDB')
+    .connect('mongodb://127.0.0.1:27017/socialDB')
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

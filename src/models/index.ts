@@ -1,4 +1,4 @@
-import reactionSchema from "./reaction";
-import User from "./user";
+import reactionSchema from "./reactionSchema.js";
+import User from "./User.js";
 
 export { reactionSchema, User };
