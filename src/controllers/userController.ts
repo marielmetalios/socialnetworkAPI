@@ -91,6 +91,38 @@ export const deleteUser = async (req: Request, res: Response) => {
   };
 };
 
+// export const deleteThoughts = async (req: Request, res: Response) => {
+//   try {
+//   const { userId, thoughtId} = req.params;
+//   try {
+//     const thought = await Thought.findByIdAndDelete(thoughtId);
+//     if (!thought) {
+//       res.status(404).json({
+//         message: 'Thought not found'
+//       });    
+//     } else {
+//       res.status(200).json({
+//         message: 'Thought deleteed.'
+//       });
+//     }
+    
+//     const deleteThought = await User.thoughts.delete(
+//       { _id: req.params.userId },
+//       { $set: req.body },
+//     );
+
+//     if (!user) {
+//       res.status(404).json({ message: 'No user with this id!' });
+//       res.json(user)
+//     }
+
+//   } catch (error: any) {
+//     res.status(400).json({
+//       message: error.message
+//     });
+//   }
+// };
+
   // export const removeFriend = async (_req: Request, res: Response) => {
   //   try {
   //     const { userId, friendId } = _req.params

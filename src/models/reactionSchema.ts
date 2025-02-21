@@ -23,6 +23,9 @@ const reactionSchema = new Schema<IReaction>(
         type: String,
         required: true,
     },
+    createdAt: {
+        type: Date
+    }
     },
     {
         toJSON: {
